@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const TopNavStyle = styled.div`
-  --hover: #000;
+  --hover: #0e71b8;
   display: flex;
   .appBar {
     max-width: 100vw;
@@ -10,11 +10,11 @@ const TopNavStyle = styled.div`
     left: 0px;
     right: 0px;
     color: #ffffff;
-    background-color: #0e71b8;
+    background-color: #000;
     .toolbar {
       display: flex;
       justify-content: space-between;
-      background-color: #0e71b8;
+      background-color: #000;
       height: 60px;
       text-align: center;
       align-items: center;
@@ -61,7 +61,7 @@ const TopNavStyle = styled.div`
             font-size: 20px;
             font-weight: 700;
             height: 100%;
-            background-color: #000;
+            background-color: #0e71b8;
             text-decoration: none;
             div {
               p {
@@ -73,7 +73,7 @@ const TopNavStyle = styled.div`
               transform: translateY(-0.25em);
             }
             &:hover {
-              background-color: #0e71b8;
+              background-color: #000;
               box-shadow: 0 0.5em 0.5em -0.2em var(--hover);
               transform: translateY(-0.25em);
             }
@@ -106,7 +106,7 @@ const TopNavStyle = styled.div`
           color: #fff;
           font-family: "Vbee";
           border-bottom: 3px solid #000;
-          background-color: #0e71b8;
+          background-color: #000;
         }
       }
     }
@@ -131,7 +131,7 @@ const SelectList = styled.select`
   color: #fff;
   font-family: "Vbee";
   border-bottom: 3px solid #000;
-  background-color: #0e71b8;
+  background-color: #000;
 `;
 
 const MenuItem = styled.option`
