@@ -13,6 +13,7 @@ import java.util.List;
 @Repository
 public interface ILocationRepository extends JpaRepository<Locations,Integer> {
 
-    @Query("FROM Locations WHERE locationName LIKE %:searchData%")
-    Page<Locations> searchLocations(String searchData, Pageable pageable);
+//    @Query("FROM Locations WHERE locationName LIKE %:searchData%")
+//    Page<Locations> searchLocations(String searchData, Pageable pageable);
+    Page<Locations> findAllByLocationName(String locationName, Pageable pageable);
 }

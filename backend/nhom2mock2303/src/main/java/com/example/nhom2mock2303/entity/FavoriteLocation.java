@@ -1,6 +1,6 @@
 package com.example.nhom2mock2303.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 
 @Data
