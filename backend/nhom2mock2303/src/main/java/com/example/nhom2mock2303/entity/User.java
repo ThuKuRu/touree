@@ -1,6 +1,9 @@
 package com.example.nhom2mock2303.entity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import java.util.List;
@@ -22,7 +25,7 @@ public class User {
 	@Column(name = "user_name", length = 100, nullable = false, unique = true)
 	private String userName;
 
-	@Column(name = "password", length = 20, nullable = false)
+	@Column(name = "password", length = 200, nullable = false)
 	private String password;
 
 	@Column(name = "phone", length = 20, nullable = false)
@@ -32,6 +35,7 @@ public class User {
 
 	@ManyToOne
 	@JoinColumn(name = "role_id")
+	@JsonIgnore
 	private Role role;
 
 	@OneToMany(mappedBy = "userId")
