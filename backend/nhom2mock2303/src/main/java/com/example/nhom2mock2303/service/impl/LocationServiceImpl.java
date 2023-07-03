@@ -1,10 +1,15 @@
+
 package com.example.nhom2mock2303.service.impl;
+
+package com.example.nhom2mock2303.security.impl;
+
 import com.example.nhom2mock2303.dto.LocationsDto;
 import com.example.nhom2mock2303.entity.Locations;
 import com.example.nhom2mock2303.form.CreateFormLocation;
 import com.example.nhom2mock2303.form.UpdateFormLocation;
 import com.example.nhom2mock2303.repository.ILocationRepository;
 import com.example.nhom2mock2303.service.ILocationService;
+import com.example.nhom2mock2303.security.ILocationService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +27,15 @@ public class LocationServiceImpl implements ILocationService {
 
     @Autowired
      ILocationRepository locationRepo;
+=======
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class LocationServiceImpl implements ILocationService {
+
+    @Autowired
+    private ILocationRepository locationRepo;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -82,8 +96,10 @@ public class LocationServiceImpl implements ILocationService {
 
     @Override
     public Page<LocationsDto> searchLocations(String data, Pageable pageable) {
+
 //        Page<Locations> locationsList = locationRepo.searchLocations(data,pageable);
         Page<Locations> locationsList = locationRepo.findAllByLocationName(data,pageable);
+        Page<Locations> locationsList = locationRepo.searchLocations(data,pageable);
         List<LocationsDto> locationsDtoList = modelMapper.map(locationsList.getContent(), new TypeToken<List<LocationsDto>>(){}.getType());
         Page<LocationsDto> dtoPages = new PageImpl<>(locationsDtoList, pageable, locationsList.getTotalElements());
         return dtoPages;
