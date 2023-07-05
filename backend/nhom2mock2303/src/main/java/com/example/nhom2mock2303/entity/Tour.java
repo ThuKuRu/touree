@@ -17,7 +17,7 @@ public class Tour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "tour_name", length = 50, nullable = false)
+    @Column(name = "tour_name", length = 255, nullable = false)
     private String tourName;
 
     @Column(name = "price", nullable = false)
@@ -26,10 +26,10 @@ public class Tour {
     @Column(name = "rate", nullable = true)
     private int rate;
 
-    @Column(name = "information", length = 255, nullable = false)
+    @Column(name = "information", length = 8000, nullable = false)
     private String information;
 
-    @Column(name = "image", length = 100, nullable = false)
+    @Column(name = "image", length = 255, nullable = false)
     private String image;
 
     @Column(name = "departure_point", length = 100, nullable = false)

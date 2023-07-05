@@ -16,13 +16,13 @@ public class Locations {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "location_name", length = 50, nullable = false)
+	@Column(name = "location_name", length = 100, nullable = false)
 	private String locationName;
 
-	@Column(name = "information", length = 100, nullable = false)
+	@Column(name = "information", length = 8000, nullable = false)
 	private String information;
 
-	@Column(name = "image", length = 100, nullable = false)
+	@Column(name = "image", length = 255, nullable = false)
 	private String image;
 
 	@OneToMany(mappedBy = "locationId")
