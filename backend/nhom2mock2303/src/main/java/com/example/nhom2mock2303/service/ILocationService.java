@@ -2,7 +2,7 @@
 package com.example.nhom2mock2303.service;
 import com.example.nhom2mock2303.dto.LocationsDto;
 
-package com.example.nhom2mock2303.security;
+
 import com.example.nhom2mock2303.dto.LocationsDto;
 import com.example.nhom2mock2303.entity.Locations;
 
@@ -15,8 +15,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 
-
-import java.util.List;
 
 public interface ILocationService {
 
