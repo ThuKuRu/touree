@@ -6,10 +6,9 @@ import lombok.Data;
 import java.util.Date;
 import java.util.List;
 
-@Data
 @Table(name = "tour", catalog = "mock2303")
 @Entity
-
+@Data
 public class Tour {
 
     @Id
