@@ -1,11 +1,11 @@
 import api from "./api";
 
 const getTourList = async () => {
-  const match = await api({
+  const tour = await api({
     method: "GET",
-    url: "/getAllTourPageable",
+    url: "/tour/getAllTourPageable",
   });
-  return match;
+  return tour;
 };
 
 export default getTourList;

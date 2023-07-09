@@ -24,7 +24,7 @@ public class TourFormForCreating {
 	
 	private String pointOfDepature;
 	
-	private String dateTour;
+	private Date dateTour;
 	
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date createDate;

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import getTourList from "../../api/tourAPI";
+import getLocationList from "../../api/locationAPI";
 import { HomePageStyle, Image, Img } from "./index.style";
 import ImageBackground from "../../img/background.png";
 
-const HomePage = () => {
+const HomePage = ({ setTab }) => {
   const [tourList, setTourList] = useState([]);
+  const [locationList, setLocationList] = useState([]);
 
   const fetchData = async () => {
-    const data = await getTourList();
-    setTourList(data.data.content);
+    const dataTour = await getTourList();
+    const dataLocation = await getLocationList();
+    setTourList(dataTour.data.content);
+    setLocationList(dataLocation.data.content);
   };
 
   useEffect(() => {
@@ -25,8 +29,15 @@ const HomePage = () => {
       </div>
       <div className="locationSpecific">
         <div className="address">
-          {tourList.map((tour) => (
-            <Img src={require("../../img/" + tour.image)} alt="/" />
+          {locationList.map((location) => (
+            <Img
+              key={location.id}
+              src={location.image}
+              alt="/"
+              onClick={() => {
+                setTab("tour");
+              }}
+            />
           ))}
         </div>
       </div>
