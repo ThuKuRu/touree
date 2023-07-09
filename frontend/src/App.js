@@ -7,20 +7,18 @@ import {
 import TourManager from "./pages/tourManagement/TourManager";
 import Home from "./Home/Home";
 import AddTour from "./component/add_tour/AddTour";
-import EditTour from "./component/edit_tour/EditTour";
+
 import TourDetail from "./pages/tourDetail/TourDetail";
 import Manage from "./pages/manage/Manage";
-
+import AddUpdateLocation from "./component/add_update_location/AddUpdateLocation";
+import "./index.css";
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
     },
-    // {
-    //   path: "tourMangage",
-    //   element: <TourManager />,
-    // },
+
     {
       path: "addTour",
       element: <AddTour />,
@@ -36,6 +34,10 @@ const App = () => {
     {
       path: "manage",
       element: <Manage />,
+    },
+    {
+      path: "addLocation",
+      element: <AddUpdateLocation />,
     },
   ]);
   return <RouterProvider router={router} />;

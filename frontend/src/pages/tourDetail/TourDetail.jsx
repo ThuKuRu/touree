@@ -38,12 +38,21 @@ const TourDetail = () => {
             <div className="title">
               <div style={{ marginLeft: "20px" }}>
                 <h2>{data.tourName}</h2>
-                <div style={{ display: "flex",marginBottom:"20px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    marginTop: "20px",
+                    alignItems: "center",
+                    
+                  }}
+                >
                   <div
                     style={{
                       color: "yellow",
                       fontSize: "22px",
                       marginRight: "50px",
+                      display: "flex",
+                      alignItems: "center",
                     }}
                   >
                     <StarFilled style={{ marginLeft: "5px" }} />
@@ -54,23 +63,28 @@ const TourDetail = () => {
                   </div>
                   <div
                     style={{
-                      border: "1px solid",
-                      padding: "2px 10px",
+                      border: "1px solid red",
+                      padding: "1px 10px",
                       cursor: "pointer",
                       borderRadius: "5px",
+                      display: "flex",
+                      alignItems: "center",
+                      color:"red"
                     }}
                   >
-                    <HeartOutlined /> 999
+                    <HeartOutlined/> 999
                   </div>
                 </div>
               </div>
-              <p style={{textDecoration:"underline"}}>{data.price}đ/khách</p>
+              <p style={{ textDecoration: "underline" }}>{data.price}đ/khách</p>
               <div style={{ marginRight: "20px" }}>
                 <p
                   style={{
                     border: "1px solid",
                     padding: "3px",
                     textAlign: "center",
+                    marginBottom: "15px",
+                    borderRadius: "5px",
                   }}
                 >
                   {data.dateTour}
@@ -84,6 +98,7 @@ const TourDetail = () => {
                     padding: "5px",
                     cursor: "pointer",
                     color: "red",
+                    borderRadius: "5px",
                   }}
                 >
                   <ShoppingCartOutlined style={{}} />
@@ -98,9 +113,8 @@ const TourDetail = () => {
           </div>
           <div></div>
         </div>
-        
       )}
-      <Footer/>
+      <Footer />
     </>
   );
 };

@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const HomePageStyle = styled.div`
-  width: 100%;
-  margin-top: 60px;
+  width: 100%;  margin-top: 60px;
   justify-content: center;
   flex-director: column;
   .location {
@@ -26,13 +25,13 @@ const HomePageStyle = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: auto;
+  height: 500px;
 `;
 
 const Img = styled.img`
   text-align: center;
   align-items: center;
-  height: 25vh;
+  height: 20vh;
   width: auto;
   margin-left: 2em;
 `;
