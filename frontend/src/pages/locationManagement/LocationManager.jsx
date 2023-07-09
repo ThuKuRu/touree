@@ -36,7 +36,7 @@ const LocationManager = () => {
 
   const columns = [
     {
-      title: "Location Name",
+      title: "Name",
       key: "action",
       render: (location) => (
         <Link to={`/locations/${location.key}`} target="_blank">
@@ -52,7 +52,7 @@ const LocationManager = () => {
         <img
           src={text}
           alt="Avatar"
-          style={{ width: "200px", height: "200px" }}
+          style={{ width: "2000px", height: "200px",borderRadius:"5px" }}
         />
       ),
     },
@@ -114,13 +114,7 @@ const LocationManager = () => {
           <Table
             columns={columns}
             dataSource={data}
-            style={{
-              marginTop: "20px",
-              gap: "20px",
-              height: "auto",
-              position: "relative",
-              zIndex: 1,
-            }}
+            
             pagination={{
               pageSize: 5,
               total: totalPages,
