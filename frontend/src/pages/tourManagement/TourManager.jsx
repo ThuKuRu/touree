@@ -6,8 +6,8 @@ import Tour from "../../Home/Tour/Tour";
 import axios from "axios";
 import { useEffect } from "react";
 import TourService from "../../service/TourService";
-import { Button, Space, Table, Tag } from "antd";
-import { useNavigate } from "react-router-dom";
+import { Button, Pagination, Space, Table, Tag } from "antd";
+import { Link, useNavigate } from "react-router-dom";
 const TourManager = () => {
   const [tab, setTab] = useState("home");
   const [tours, setTours] = useState([]);
@@ -23,7 +23,6 @@ const TourManager = () => {
         console.log(error);
       });
   };
-  console.log(tours);
   useEffect(() => {
     getAll();
   }, []);
@@ -37,12 +36,28 @@ const TourManager = () => {
         console.log(error);
       });
   };
+
   const columns = [
     {
       title: "Tour Name",
-      dataIndex: "tourname",
-      key: "tourname",
-      render: (text) => <a>{text}</a>,
+      key: "action",
+      render: (tour) => (
+        <Link to={`/tours/${tour.key}`} target="_blank">
+          {tour.tourname}
+        </Link>
+      ),
+    },
+    {
+      title: "Image",
+      dataIndex: "image",
+      key: "image",
+      render: (text) => (
+        <img
+          src={text}
+          alt="Avatar"
+          style={{ width: "100px", height: "100px",borderRadius:"5px" }}
+        />
+      ),
     },
     {
       title: "Price",
@@ -59,6 +74,7 @@ const TourManager = () => {
       dataIndex: "rate",
       key: "rate",
     },
+
     {
       title: "Action",
       key: "action",
@@ -68,7 +84,7 @@ const TourManager = () => {
             type="primary"
             ghost
             style={{ marginRight: "10px" }}
-            onClick={() => navigate(`/editTour/${tour.key}`)}
+            onClick={() => navigate(`/editTour/${tour.key}`, console.log(tour))}
           >
             Update
           </Button>
@@ -85,17 +101,17 @@ const TourManager = () => {
     dateTour: item.dateTour,
     rate: item.rate,
     price: item.price,
+    image: item.image
   }));
   return (
     <>
-      <TopNav />
+      {/* <TopNav /> */}
       <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height:"auto",
-        }}
+        // style={{
+        //   display: "flex",
+        //   justifyContent: "center",
+        //   alignItems: "center",
+        // }}
       >
         <div
           style={{
@@ -104,7 +120,8 @@ const TourManager = () => {
             borderRadius: "15px",
             padding: "20px",
             height: "auto",
-            width:"80%"
+            width: "100%",
+            marginBottom: "20px",
           }}
         >
           <Button type="primary" onClick={() => navigate("/addTour")}>
@@ -113,7 +130,7 @@ const TourManager = () => {
           <Table
             columns={columns}
             dataSource={data}
-            style={{ marginTop: "20px", gap: "20px"}}
+            style={{ marginTop: "20px", gap: "20px", height: "auto" }}
             pagination={{
               pageSize: 5,
               total: totalPages,
@@ -121,9 +138,15 @@ const TourManager = () => {
             }}
             loading={false}
           />
+          {/* <Pagination
+          pageSize={5}
+          total={totalPages}
+          onChange={(page) => {}}
+          style={{ height: '50px' }} // Set the desired height here
+        /> */}
         </div>
       </div>
-      <Footer style={{ position: "relative " }} />
+      {/* <Footer style={{ position: "relative " }} /> */}
     </>
   );
 };
