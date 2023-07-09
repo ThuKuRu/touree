@@ -6,7 +6,7 @@ import Tour from "../../Home/Tour/Tour";
 import axios from "axios";
 import { useEffect } from "react";
 import TourService from "../../service/TourService";
-import { Button, Space, Table, Tag } from "antd";
+import { Button, Pagination, Space, Table, Tag } from "antd";
 import { useNavigate } from "react-router-dom";
 const TourManager = () => {
   const [tab, setTab] = useState("home");
@@ -23,7 +23,6 @@ const TourManager = () => {
         console.log(error);
       });
   };
-  console.log(tours);
   useEffect(() => {
     getAll();
   }, []);
@@ -40,9 +39,10 @@ const TourManager = () => {
   const columns = [
     {
       title: "Tour Name",
-      dataIndex: "tourname",
-      key: "tourname",
-      render: (text) => <a>{text}</a>,
+      key: "action",
+      render: (tour) => (
+        <a onClick={() => navigate(`/tours/${tour.key}`)}>{tour.tourname}</a>
+      ),
     },
     {
       title: "Price",
@@ -59,6 +59,7 @@ const TourManager = () => {
       dataIndex: "rate",
       key: "rate",
     },
+    
     {
       title: "Action",
       key: "action",
@@ -68,7 +69,7 @@ const TourManager = () => {
             type="primary"
             ghost
             style={{ marginRight: "10px" }}
-            onClick={() => navigate(`/editTour/${tour.key}`)}
+            onClick={() => navigate(`/editTour/${tour.key}`, console.log(tour))}
           >
             Update
           </Button>
@@ -94,7 +95,8 @@ const TourManager = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height:"auto",
+          
+          
         }}
       >
         <div
@@ -103,8 +105,9 @@ const TourManager = () => {
             border: "1px solid gray",
             borderRadius: "15px",
             padding: "20px",
-            height: "auto",
-            width:"80%"
+            height: "500px",
+            width: "80%",
+            marginBottom:"20px"
           }}
         >
           <Button type="primary" onClick={() => navigate("/addTour")}>
@@ -113,14 +116,21 @@ const TourManager = () => {
           <Table
             columns={columns}
             dataSource={data}
-            style={{ marginTop: "20px", gap: "20px"}}
-            pagination={{
-              pageSize: 5,
-              total: totalPages,
-              onChange: (page) => {},
-            }}
-            loading={false}
+            style={{ marginTop: "20px", gap: "20px",height:"450px" }}
+            // pagination={{
+            //   pageSize: 5,
+            //   total: totalPages,
+            //   onChange: (page) => {},
+              
+            // }}
+            // loading={false}
           />
+          <Pagination
+          pageSize={5}
+          total={totalPages}
+          onChange={(page) => {}}
+          style={{ height: '50px' }} // Set the desired height here
+        />
         </div>
       </div>
       <Footer style={{ position: "relative " }} />
