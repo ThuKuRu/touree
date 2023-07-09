@@ -69,7 +69,7 @@ const AddTour = () => {
     if (id) {
       TourService.updateTour(id, tour)
         .then((response) => {
-          navigate("/tourMangage");
+          navigate("/manage");
         })
         .catch((error) => {
           console.log(error);
@@ -82,7 +82,7 @@ const AddTour = () => {
         .catch((error) => {
           console.log(error);
         });
-      navigate("/tourMangage");
+      navigate("/manage");
     }
   };
   return (
@@ -157,7 +157,7 @@ const AddTour = () => {
         <Button
           danger
           ghost
-          onClick={(e) => navigate("/tourMangage")}
+          onClick={(e) => navigate("/manage")}
           style={{ marginTop: "50px", marginLeft: "180px" }}
         >
           Cancel
