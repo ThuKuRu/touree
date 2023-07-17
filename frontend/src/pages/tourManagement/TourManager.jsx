@@ -124,7 +124,7 @@ const TourManager = () => {
             marginBottom: "20px",
           }}
         >
-          <Button type="primary" onClick={() => navigate("/addTour")}>
+          <Button type="primary" style={{backgroundColor:"#1677FF"}} onClick={() => navigate("/addTour")}>
             Create tour
           </Button>
           <Table

@@ -11,6 +11,7 @@ const TopNavStyle = styled.div`
     right: 0px;
     color: #ffffff;
     background-color: #000;
+    z-index: 100;
     .toolbar {
       display: flex;
       justify-content: space-between;

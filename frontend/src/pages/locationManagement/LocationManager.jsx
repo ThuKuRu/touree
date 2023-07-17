@@ -52,7 +52,7 @@ const LocationManager = () => {
         <img
           src={text}
           alt="Avatar"
-          style={{ width: "2000px", height: "200px",borderRadius:"5px" }}
+          style={{ width: "2000px", height: "200px", borderRadius: "5px" }}
         />
       ),
     },
@@ -70,11 +70,18 @@ const LocationManager = () => {
             type="primary"
             ghost
             style={{ marginRight: "10px", marginBottom: "10px" }}
-            onClick={() => navigate(`/editTour/${location.key}`, console.log(location))}
+            onClick={() =>
+              navigate(`/editTour/${location.key}`, console.log(location))
+            }
           >
             Update
           </Button>
-          <Button type="primary" danger ghost onClick={()=>deleteLocation(location)}>
+          <Button
+            type="primary"
+            danger
+            ghost
+            onClick={() => deleteLocation(location)}
+          >
             Delete
           </Button>
         </>
@@ -108,13 +115,12 @@ const LocationManager = () => {
             overflowX: "auto",
           }}
         >
-          <Button type="primary" onClick={() => navigate("/addTour")}>
-            Create tour
+          <Button type="primary" style={{backgroundColor:"#1677FF"}} onClick={() => navigate("/addLocation")}>
+            Create location
           </Button>
           <Table
             columns={columns}
             dataSource={data}
-            
             pagination={{
               pageSize: 5,
               total: totalPages,

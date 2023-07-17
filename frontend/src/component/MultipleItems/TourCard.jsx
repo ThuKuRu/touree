@@ -39,14 +39,14 @@ const TourCard = (props) => {
         className="cursor-pointer"
         target="_blank"
       >
-        {/* <div className="flex bg-white items-center rounded-lg px-2 "> */}
+        <div className="flex flex-col bg-white items-center rounded-lg  " style={{border:"1px solid gray"}}>
         <img
           className="avatar-img object-cover rounded-lg "
           src={tour.image}
           alt={tour.image}
         />
-        <div className="flex w-full flex-col p-4 leading-normal">
-          <ul className="mb-2  font-semibold tracking-tight text-gray-900 ">
+        <div className="flex w-full flex-col p-4 leading-normal" >
+          <ul className="mb-2  font-semibold tracking-tight text-gray-900 " >
             {renderOverView}
           </ul>
           <div className="flex w-full justify-between">
@@ -66,7 +66,7 @@ const TourCard = (props) => {
             <p className="font-bold text-xl"> {tour.price}đ</p>
           </div>
         </div>
-        {/* </div> */}
+        </div>
       </NavLink>
     </>
   );

@@ -85,6 +85,7 @@ const AddTour = () => {
       navigate("/manage");
     }
   };
+  
   return (
     <div
       style={{

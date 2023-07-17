@@ -31,7 +31,7 @@ const LocationCard = (props) => {
   return (
     <>
       <NavLink to={`/locations/${location.id}`}>
-        <div className=" bg-white rounded-lg border-8 border-white shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div className=" bg-white rounded-lg border-8  border-white shadow-md dark:bg-gray-800 dark:border-gray-700" style={{border:"1px solid gray"}}>
           <img
             className="banned-img rounded-t-lg"
             src={props.location.image}
