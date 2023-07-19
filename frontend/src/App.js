@@ -12,6 +12,8 @@ import TourDetail from "./pages/tourDetail/TourDetail";
 import Manage from "./pages/manage/Manage";
 import AddUpdateLocation from "./component/add_update_location/AddUpdateLocation";
 import "./index.css";
+import LocationDetail from "./pages/locationDetail/LocationDetail";
+import AllLocations from "./pages/locationManagement/AllLocations";
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -38,6 +40,14 @@ const App = () => {
     {
       path: "addLocation",
       element: <AddUpdateLocation />,
+    },
+    {
+      path: "/locations/:id",
+      element: <LocationDetail />,
+    },
+    {
+      path: "/all-locations",
+      element: <AllLocations />,
     },
   ]);
   return <RouterProvider router={router} />;

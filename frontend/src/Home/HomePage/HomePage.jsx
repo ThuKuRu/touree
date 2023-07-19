@@ -38,8 +38,8 @@ const HomePage = ({ setTab }) => {
         <MultipleLocation listLocations={locationList} />
         <div className="flex items-center w-full justify-center pt-12">
           <NavLink
-            className="text-lg col-span-1 bg-orange-100 uppercase text-orange-500 font-semibold  py-2 px-8 border border-orange-300 hover:border-transparent rounded-sm duration-500 hover:bg-orange-300 hover:!text-white"
-            to="/all-courses"
+            className="text-lg col-span-1 bg-orange-100 uppercase text-orange-500 font-semibold  py-2 px-8 border border-orange-300 hover:border-transparent rounded-sm duration-500 hover:bg-orange-300 hover:!text-white rounded-xl"
+            to="/all-locations"
           >
             View All
           </NavLink>

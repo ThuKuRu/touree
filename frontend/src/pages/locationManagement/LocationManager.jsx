@@ -1,10 +1,9 @@
 import { Button, Table } from "antd";
 import { Header } from "antd/es/layout/layout";
-import Link from "antd/es/typography/Link";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TopNav from "../../Home/Layout/TopNav/TopNav";
 import LocationService from "../../service/LocationService";
 
@@ -39,7 +38,11 @@ const LocationManager = () => {
       title: "Name",
       key: "action",
       render: (location) => (
-        <Link to={`/locations/${location.key}`} target="_blank">
+        <Link
+          to={`/locations/${location.key}`}
+          target="_blank"
+          className="text-blue-400"
+        >
           {location.locationname}
         </Link>
       ),
@@ -115,7 +118,11 @@ const LocationManager = () => {
             overflowX: "auto",
           }}
         >
-          <Button type="primary" style={{backgroundColor:"#1677FF"}} onClick={() => navigate("/addLocation")}>
+          <Button
+            type="primary"
+            style={{ backgroundColor: "#1677FF" }}
+            onClick={() => navigate("/addLocation")}
+          >
             Create location
           </Button>
           <Table

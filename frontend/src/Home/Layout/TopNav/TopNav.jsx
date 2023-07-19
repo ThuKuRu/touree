@@ -3,27 +3,30 @@ import React, { useState } from "react";
 import { TopNavStyle, Logo, MenuItem, Avatar, SelectList } from "./index.style";
 import LogoImg from "../../../img/logo_2.png";
 import AvatarImg from "../../../img/thu_1.png";
-
+import { useNavigate } from "react-router-dom";
 const TopNav = ({ tab, setTab }) => {
   const [value, setValue] = useState("en");
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-
+  const navigate = useNavigate();
   return (
     <TopNavStyle>
       <div className="appBar">
         <div className="toolbar">
-          <div className="headLogo">
+          <div
+            className="headLogo cursor-pointer"
+            onClick={() => navigate("/")}
+          >
             <Logo src={LogoImg} />
-            <p>WORLD TRAVEL</p>     
+            <p>WORLD TRAVEL</p>
           </div>
           <div className="listItem">
             <div className={`container ${tab === "home" ? "active" : null}`}>
               <div
                 onClick={() => {
-                  setTab("home");
+                  navigate("/");
                 }}
               >
                 HOME
@@ -32,10 +35,10 @@ const TopNav = ({ tab, setTab }) => {
             <div className={`container ${tab === "tour" ? "active" : null}`}>
               <div
                 onClick={() => {
-                  setTab("tour");
+                  navigate("/manage");
                 }}
               >
-                TOUR
+                MANAGE
               </div>
             </div>
           </div>

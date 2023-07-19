@@ -42,7 +42,7 @@ const TourManager = () => {
       title: "Tour Name",
       key: "action",
       render: (tour) => (
-        <Link to={`/tours/${tour.key}`} target="_blank">
+        <Link to={`/tours/${tour.key}`} target="_blank" className="text-blue-400">
           {tour.tourname}
         </Link>
       ),
@@ -55,7 +55,7 @@ const TourManager = () => {
         <img
           src={text}
           alt="Avatar"
-          style={{ width: "100px", height: "100px",borderRadius:"5px" }}
+          style={{ width: "200px", height: "100px",borderRadius:"5px" }}
         />
       ),
     },

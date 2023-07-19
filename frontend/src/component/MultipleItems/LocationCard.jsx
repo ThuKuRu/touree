@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { FolderOpenOutlined } from "@ant-design/icons";
-import "./location.css"
+import "./location.css";
 const LocationCard = (props) => {
   const { location } = props;
   console.log(location);
@@ -30,8 +30,8 @@ const LocationCard = (props) => {
 
   return (
     <>
-      <NavLink to={`/locations/${location.id}`}>
-        <div className=" bg-white rounded-lg border-8  border-white shadow-md dark:bg-gray-800 dark:border-gray-700" style={{border:"1px solid gray"}}>
+      <NavLink to={`/locations/${location.id}`} className="card">
+        <div className=" bg-white rounded-lg border-8  border-white shadow-md dark:bg-gray-800 dark:border-gray-700">
           <img
             className="banned-img rounded-t-lg"
             src={props.location.image}
@@ -44,7 +44,7 @@ const LocationCard = (props) => {
             <ul className=" mb-2 text-base font-bold tracking-tight text-gray-800 dark:text-white">
               {renderOverView}
             </ul>
-            
+
             <hr className="mb-4 mt-2 line" />
             {/* <div className="flex justify-between">
               <div className="flex items-center">
