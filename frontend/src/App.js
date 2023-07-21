@@ -14,6 +14,8 @@ import AddUpdateLocation from "./component/add_update_location/AddUpdateLocation
 import "./index.css";
 import LocationDetail from "./pages/locationDetail/LocationDetail";
 import AllLocations from "./pages/locationManagement/AllLocations";
+import { Login } from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -48,6 +50,14 @@ const App = () => {
     {
       path: "/all-locations",
       element: <AllLocations />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
     },
   ]);
   return <RouterProvider router={router} />;

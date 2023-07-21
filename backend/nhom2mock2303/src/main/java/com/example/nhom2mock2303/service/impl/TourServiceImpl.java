@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TourServiceImpl implements ITourService {
@@ -31,7 +32,12 @@ public class TourServiceImpl implements ITourService {
 		}
 		return tourRepository.findAll(whereTour, pageable);
 	}
-	
+
+	@Override
+	public Optional<Tour> getTourById(Integer id) {
+		return tourRepository.findById(id);
+	}
+
 	@Override
 	public List<Tour> getListAll() {
 		List<Tour> tourListList = tourRepository.findAll();

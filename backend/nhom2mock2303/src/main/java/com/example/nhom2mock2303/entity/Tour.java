@@ -38,7 +38,7 @@ public class Tour {
     private String pointOfDepature;
 
     @Column(name = "date_tour", length = 100, nullable = false)
-    private Date dateTour;
+    private String dateTour;
 
     @OneToMany(mappedBy = "tourId")
     private List<TourLocation> tourLocations;

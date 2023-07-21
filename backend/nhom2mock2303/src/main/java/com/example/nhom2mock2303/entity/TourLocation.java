@@ -18,7 +18,7 @@ public class TourLocation {
     @MapsId("location_id")
     @JoinColumn(name = "location_id")
     private  Locations locationId;
-//
+    //
     @ManyToOne
     @MapsId("tour_id")
     @JoinColumn(name = "tour_id")

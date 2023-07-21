@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 @RestController
@@ -49,8 +50,12 @@ public class TourController {
 		}
 		return new ResponseEntity<>("nullnable", HttpStatus.OK);
 	}
-	
 
+	@GetMapping("/{id}")
+	public ResponseEntity<?> getTourById(@PathVariable(name = "id") Integer id) {
+		Optional<Tour> tour = tourService.getTourById(id);
+		return new ResponseEntity<>(tour, HttpStatus.OK);
+	}
 	// Delete Tour By ID
 	@DeleteMapping("delete/{id}")
 	public ResponseEntity<?> deleteTourByID(@PathVariable(name = "id") Integer id) {
