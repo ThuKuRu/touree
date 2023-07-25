@@ -2,6 +2,7 @@ package com.example.nhom2mock2303.repository;
 
 
 import com.example.nhom2mock2303.entity.Locations;
+import com.example.nhom2mock2303.entity.TourLocation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,4 +16,5 @@ public interface ILocationRepository extends JpaRepository<Locations,Integer> {
 
     @Query("FROM Locations WHERE locationName LIKE %:searchData%")
     Page<Locations> searchLocations(String searchData, Pageable pageable);
+
 }

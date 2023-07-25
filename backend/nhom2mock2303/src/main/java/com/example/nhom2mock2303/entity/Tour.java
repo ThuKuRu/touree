@@ -1,12 +1,17 @@
 package com.example.nhom2mock2303.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
 
-@Data
+//@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "tour", catalog = "mock2303")
 @Entity
 
@@ -17,7 +22,7 @@ public class Tour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "tour_name", length = 50, nullable = false)
+    @Column(name = "tour_name", length = 255, nullable = false)
     private String tourName;
 
     @Column(name = "price", nullable = false)
@@ -26,10 +31,10 @@ public class Tour {
     @Column(name = "rate", nullable = true)
     private int rate;
 
-    @Column(name = "information", length = 255, nullable = false)
+    @Column(name = "information", length = 8000, nullable = false)
     private String information;
 
-    @Column(name = "image", length = 100, nullable = false)
+    @Column(name = "image", length = 255, nullable = false)
     private String image;
 
     @Column(name = "departure_point", length = 100, nullable = false)
@@ -39,7 +44,7 @@ public class Tour {
     private String pointOfDepature;
 
     @Column(name = "date_tour", length = 100, nullable = false)
-    private Date dateTour;
+    private String dateTour;
 
     @OneToMany(mappedBy = "tourId")
     private List<TourLocation> tourLocations;
@@ -49,4 +54,19 @@ public class Tour {
 
     @OneToMany(mappedBy = "tourId")
     private List<FavoriteTour> favoriteTours;
+
+//    @Override
+//    public String toString() {
+//        return "Tour{" +
+//                "id=" + id +
+//                ", tourName='" + tourName + '\'' +
+//                ", price=" + price +
+//                ", rate=" + rate +
+//                ", information='" + information + '\'' +
+//                ", image='" + image + '\'' +
+//                ", departurePoint='" + departurePoint + '\'' +
+//                ", pointOfDepature='" + pointOfDepature + '\'' +
+//                ", dateTour='" + dateTour + '\'' +
+//                '}';
+//    }
 }

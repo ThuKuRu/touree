@@ -1,11 +1,15 @@
 package com.example.nhom2mock2303.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+//@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "locations", catalog = "mock2303")
 @Entity
 
@@ -16,13 +20,13 @@ public class Locations {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	@Column(name = "location_name", length = 50, nullable = false)
+	@Column(name = "location_name", length = 100, nullable = false)
 	private String locationName;
 
-	@Column(name = "information", length = 100, nullable = false)
+	@Column(name = "information",length = 8000,  nullable = false)
 	private String information;
 
-	@Column(name = "image", length = 100, nullable = false)
+	@Column(name = "image",length = 255,  nullable = false)
 	private String image;
 
 	@OneToMany(mappedBy = "locationId")
@@ -30,4 +34,14 @@ public class Locations {
 
 	@OneToMany(mappedBy = "locationId")
 	private List<FavoriteLocation> favoriteLocations;
+
+//	@Override
+//	public String toString() {
+//		return "Locations{" +
+//				"id=" + id +
+//				", locationName='" + locationName + '\'' +
+//				", information='" + information + '\'' +
+//				", image='" + image +
+//				'}';
+//	}
 }

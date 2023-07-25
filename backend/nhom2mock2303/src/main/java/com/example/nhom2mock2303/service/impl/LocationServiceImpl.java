@@ -1,10 +1,12 @@
-package com.example.nhom2mock2303.security.impl;
+package com.example.nhom2mock2303.service.impl;
 import com.example.nhom2mock2303.dto.LocationsDto;
 import com.example.nhom2mock2303.entity.Locations;
+import com.example.nhom2mock2303.entity.TourLocation;
 import com.example.nhom2mock2303.form.CreateFormLocation;
 import com.example.nhom2mock2303.form.UpdateFormLocation;
 import com.example.nhom2mock2303.repository.ILocationRepository;
-import com.example.nhom2mock2303.security.ILocationService;
+import com.example.nhom2mock2303.repository.ITourLocationRepository;
+import com.example.nhom2mock2303.service.ILocationService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,6 +22,9 @@ public class LocationServiceImpl implements ILocationService {
 
     @Autowired
     private ILocationRepository locationRepo;
+
+    @Autowired
+    private ITourLocationRepository tourLocationRepo;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -61,6 +65,10 @@ public class LocationServiceImpl implements ILocationService {
     public String deletelocation(Integer id) {
         if (!locationRepo.findById(id).isPresent()){
             return "Xoá không thành công id:"+ id;
+        }
+        List<TourLocation> listtl = tourLocationRepo.findByLocationId(id);
+        for (int i = 0; i < listtl.size(); i++){
+            tourLocationRepo.deleteById(listtl.get(i).getId());
         }
         locationRepo.deleteById(id);
         return "Xoá thành công id:"+ id;
