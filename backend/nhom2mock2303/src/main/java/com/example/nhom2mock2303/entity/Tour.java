@@ -2,13 +2,14 @@ package com.example.nhom2mock2303.entity;
 
 import javax.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.Date;
 import java.util.List;
 
+@Data
 @Table(name = "tour", catalog = "mock2303")
 @Entity
-@Data
 public class Tour {
 
     @Id
@@ -40,12 +41,15 @@ public class Tour {
     @Column(name = "date_tour", length = 100, nullable = false)
     private String dateTour;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "tourId")
     private List<TourLocation> tourLocations;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "tourId")
     private List<Oder> oders;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "tourId")
     private List<FavoriteTour> favoriteTours;
 }

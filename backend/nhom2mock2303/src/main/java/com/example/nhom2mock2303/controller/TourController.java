@@ -3,8 +3,8 @@ package com.example.nhom2mock2303.controller;
 
 import com.example.nhom2mock2303.dto.TourDTO;
 import com.example.nhom2mock2303.entity.Tour;
-import com.example.nhom2mock2303.form.TourFormForCreating;
-import com.example.nhom2mock2303.form.TourFormForUpdateting;
+import com.example.nhom2mock2303.form.create.TourFormForCreating;
+import com.example.nhom2mock2303.form.update.TourFormForUpdateting;
 import com.example.nhom2mock2303.service.IFavoriteTourService;
 import com.example.nhom2mock2303.service.IOderService;
 import com.example.nhom2mock2303.service.ITourLocationService;

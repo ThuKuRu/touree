@@ -4,8 +4,8 @@ package com.example.nhom2mock2303.service.impl;
 
 import com.example.nhom2mock2303.dto.LocationsDto;
 import com.example.nhom2mock2303.entity.Locations;
-import com.example.nhom2mock2303.form.CreateFormLocation;
-import com.example.nhom2mock2303.form.UpdateFormLocation;
+import com.example.nhom2mock2303.form.create.CreateFormLocation;
+import com.example.nhom2mock2303.form.update.UpdateFormLocation;
 import com.example.nhom2mock2303.repository.ILocationRepository;
 import com.example.nhom2mock2303.service.ILocationService;
 import org.modelmapper.ModelMapper;
@@ -16,7 +16,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 

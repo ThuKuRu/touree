@@ -1,9 +1,9 @@
-package com.example.nhom2mock2303.form;
+package com.example.nhom2mock2303.form.update;
 
 import lombok.Data;
 
 @Data
-public class CreateFormLocation {
+public class UpdateFormLocation {
 
     private String locationName;
 
