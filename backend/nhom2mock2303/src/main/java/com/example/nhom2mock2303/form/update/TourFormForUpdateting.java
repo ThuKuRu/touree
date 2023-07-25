@@ -1,4 +1,4 @@
-package com.example.nhom2mock2303.form;
+package com.example.nhom2mock2303.form.update;
 
 import lombok.Data;
 

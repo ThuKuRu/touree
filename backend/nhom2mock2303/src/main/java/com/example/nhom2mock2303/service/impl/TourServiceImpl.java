@@ -1,7 +1,7 @@
 package com.example.nhom2mock2303.service.impl;
 
 import com.example.nhom2mock2303.entity.Tour;
-import com.example.nhom2mock2303.form.TourFormForCreating;
+import com.example.nhom2mock2303.form.create.TourFormForCreating;
 import com.example.nhom2mock2303.repository.ITourRepository;
 import com.example.nhom2mock2303.service.ITourService;
 import com.example.nhom2mock2303.speccification.TourSpeccification;

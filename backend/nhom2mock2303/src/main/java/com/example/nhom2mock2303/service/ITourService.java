@@ -1,7 +1,7 @@
 package com.example.nhom2mock2303.service;
 
 import com.example.nhom2mock2303.entity.Tour;
-import com.example.nhom2mock2303.form.TourFormForCreating;
+import com.example.nhom2mock2303.form.create.TourFormForCreating;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

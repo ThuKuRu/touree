@@ -1,7 +1,7 @@
 package com.example.nhom2mock2303.controller;
 
-import com.example.nhom2mock2303.form.CreateFormLocation;
-import com.example.nhom2mock2303.form.UpdateFormLocation;
+import com.example.nhom2mock2303.form.create.CreateFormLocation;
+import com.example.nhom2mock2303.form.update.UpdateFormLocation;
 import com.example.nhom2mock2303.service.ILocationService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;

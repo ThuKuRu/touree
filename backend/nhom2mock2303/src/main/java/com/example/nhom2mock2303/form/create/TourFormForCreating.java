@@ -1,4 +1,4 @@
-package com.example.nhom2mock2303.form;
+package com.example.nhom2mock2303.form.create;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

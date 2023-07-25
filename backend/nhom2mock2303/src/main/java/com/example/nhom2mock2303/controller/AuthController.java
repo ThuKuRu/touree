@@ -2,31 +2,28 @@ package com.example.nhom2mock2303.controller;
 
 import com.example.nhom2mock2303.config.Security.model.UserDetail;
 import com.example.nhom2mock2303.config.Security.token.JwtTokenUtils;
+import com.example.nhom2mock2303.dto.UserDTO;
 import com.example.nhom2mock2303.entity.Role;
 import com.example.nhom2mock2303.entity.User;
 import com.example.nhom2mock2303.form.Reponse.TokenReponse;
-import com.example.nhom2mock2303.form.Request.LoginFormRequest;
-import com.example.nhom2mock2303.form.Request.SignupFormRequest;
+import com.example.nhom2mock2303.form.login.LoginFormRequest;
+import com.example.nhom2mock2303.form.signup.SignupFormRequest;
 import com.example.nhom2mock2303.service.impl.RoleService;
 import com.example.nhom2mock2303.service.impl.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Optional;
 
 
@@ -35,6 +32,9 @@ import java.util.Optional;
 @CrossOrigin("*")
 public class AuthController {
 
+
+    @Autowired
+    private ModelMapper modelMapper;
     @Autowired
     private UserService iUserService;
 
@@ -90,5 +90,22 @@ public class AuthController {
         return new ResponseEntity<>(userDetails,HttpStatus.OK);
     }
 
-
+    @PutMapping("/updateProfile")
+    public ResponseEntity<?> update(@RequestBody UserDTO userupdate){
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            UserDetail userDetails = (UserDetail) authentication.getPrincipal();
+            User user = iUserService.findByUsername(userDetails.getUsername());
+            String password = bCryptPasswordEncoder.encode(userupdate.getPassword());
+            userupdate.setPassword(password);
+            modelMapper.map(userupdate,user);
+            iUserService.save(user);
+            userDetails.setUserName(userupdate.getUserName());
+            String token = jwtTokenUtils.createToken(userDetails);
+            TokenReponse tokenReponse = new TokenReponse(user.getRole().toString(),token);
+            return ResponseEntity.status(HttpStatus.OK).body(tokenReponse);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
+        }
+    }
 }

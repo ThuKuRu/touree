@@ -3,11 +3,8 @@ package com.example.nhom2mock2303.service;
 import com.example.nhom2mock2303.dto.LocationsDto;
 
 
-import com.example.nhom2mock2303.dto.LocationsDto;
-import com.example.nhom2mock2303.entity.Locations;
-
-import com.example.nhom2mock2303.form.CreateFormLocation;
-import com.example.nhom2mock2303.form.UpdateFormLocation;
+import com.example.nhom2mock2303.form.create.CreateFormLocation;
+import com.example.nhom2mock2303.form.update.UpdateFormLocation;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
