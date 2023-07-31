@@ -100,8 +100,10 @@ public class AuthController {
 //            String password = bCryptPasswordEncoder.encode(userupdate.getPassword());
 //            userupdate.setPassword(password);
             modelMapper.map(userupdate,user);
+//            iUserService.save(user);
+//            userDetails.setUserName(userupdate.getUserName());
+            modelMapper.map(user,userDetails);
             iUserService.save(user);
-            userDetails.setUserName(userupdate.getUserName());
             String token = jwtTokenUtils.createToken(userDetails);
             TokenReponse tokenReponse = new TokenReponse(user.getRole().toString(),token);
             return ResponseEntity.status(HttpStatus.OK).body(tokenReponse);
