@@ -1,17 +1,14 @@
 package com.example.nhom2mock2303.controller;
 
-import com.example.nhom2mock2303.entity.Locations;
-import com.example.nhom2mock2303.form.CreateFormLocation;
-import com.example.nhom2mock2303.form.UpdateFormLocation;
-import com.example.nhom2mock2303.security.ILocationService;
+import com.example.nhom2mock2303.form.create.CreateFormLocation;
+import com.example.nhom2mock2303.form.update.UpdateFormLocation;
+import com.example.nhom2mock2303.service.ILocationService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @Data
@@ -20,7 +17,7 @@ import java.util.List;
 public class LocationController {
 
     @Autowired
-    private ILocationService locationService;
+     private  ILocationService locationService;
 
     @GetMapping("getlocationpage")
     public ResponseEntity<?> getpage(Pageable pageable) {
