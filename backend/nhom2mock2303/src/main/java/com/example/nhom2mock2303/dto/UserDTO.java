@@ -21,9 +21,9 @@ public class UserDTO {
 
     private String userName;
 
-    private String password;
+//    private String password;
 
-    private String phonenumber;
+    private String phoneNumber;
 
 }
 

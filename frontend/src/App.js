@@ -16,6 +16,7 @@ import LocationDetail from "./pages/locationDetail/LocationDetail";
 import AllLocations from "./pages/locationManagement/AllLocations";
 import { Login } from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import Profile from "./pages/profile/Profile";
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -58,6 +59,10 @@ const App = () => {
     {
       path: "/register",
       element: <Register />,
+    },
+    {
+      path: "/profile",
+      element: <Profile />,
     },
   ]);
   return <RouterProvider router={router} />;

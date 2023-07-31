@@ -9,7 +9,6 @@ import { NavLink } from "react-router-dom";
 import "./tourCard.css";
 const TourCard = (props) => {
   const { tour } = props;
-  console.log(tour);
   const renderOverView = tour.tourName
     ?.split(";")
     .slice(0, 1)

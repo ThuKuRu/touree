@@ -76,7 +76,8 @@ public class AuthController {
             UserDetail userDetail = (UserDetail) authentication.getPrincipal();
             User user = iUserService.findByUsername(userDetail.getUsername());
             String token = jwtTokenUtils.createToken(userDetail);
-            TokenReponse tokenReponse = new TokenReponse(user.getRole().toString(),token);
+            Role role = user.getRole();
+            TokenReponse tokenReponse = new TokenReponse(role.getRoleName(),token);
             return ResponseEntity.status(HttpStatus.OK).body(tokenReponse);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getMessage());
@@ -96,8 +97,8 @@ public class AuthController {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             UserDetail userDetails = (UserDetail) authentication.getPrincipal();
             User user = iUserService.findByUsername(userDetails.getUsername());
-            String password = bCryptPasswordEncoder.encode(userupdate.getPassword());
-            userupdate.setPassword(password);
+//            String password = bCryptPasswordEncoder.encode(userupdate.getPassword());
+//            userupdate.setPassword(password);
             modelMapper.map(userupdate,user);
 //            iUserService.save(user);
 //            userDetails.setUserName(userupdate.getUserName());

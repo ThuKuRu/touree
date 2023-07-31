@@ -39,7 +39,6 @@ const MultipleLocation = (props) => {
     prevArrow: <SamplePrevArrow />,
   };
   const { listLocations } = props;
-  console.log(listLocations);
   const renderLocation = (listLocations) => {
     return listLocations.map((item, index) => {
       return (

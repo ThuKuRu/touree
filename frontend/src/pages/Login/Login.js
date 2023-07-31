@@ -34,9 +34,10 @@ export const Login = (props) => {
         console.log(response);
         if (response.status === 200) {
           const token = response.data.token;
-
+          const role = response.data.role;
           // Lưu token vào localStorage
           localStorage.setItem("token", token);
+          localStorage.setItem("role", role);
           openNotificationWithIcon("SUCCESS", "Login successfully", "success");
           navigate("/");
         } else {

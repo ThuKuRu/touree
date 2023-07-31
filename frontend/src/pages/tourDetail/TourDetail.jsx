@@ -28,7 +28,6 @@ const TourDetail = () => {
 
     fetchData();
   }, [id]);
-  console.log(data);
   return (
     <>
       <TopNav />
