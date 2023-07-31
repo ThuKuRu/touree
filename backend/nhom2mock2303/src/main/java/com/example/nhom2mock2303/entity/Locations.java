@@ -1,12 +1,15 @@
 package com.example.nhom2mock2303.entity;
 
 import javax.persistence.*;
-import lombok.Data;
-import lombok.ToString;
+
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "locations", catalog = "mock2303")
 @Entity
 @ToString

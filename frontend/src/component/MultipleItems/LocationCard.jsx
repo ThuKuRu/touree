@@ -4,7 +4,6 @@ import { FolderOpenOutlined } from "@ant-design/icons";
 import "./location.css";
 const LocationCard = (props) => {
   const { location } = props;
-  console.log(location);
   const renderOverView = location.information
     ?.split(";")
     .slice(0, 1)

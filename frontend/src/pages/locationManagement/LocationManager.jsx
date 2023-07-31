@@ -100,11 +100,11 @@ const LocationManager = () => {
   return (
     <>
       <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        // style={{
+        //   display: "flex",
+        //   justifyContent: "center",
+        //   alignItems: "center",
+        // }}
       >
         <div
           style={{
@@ -115,7 +115,6 @@ const LocationManager = () => {
             height: "auto",
             width: "100%",
             marginBottom: "20px",
-            overflowX: "auto",
           }}
         >
           <Button
@@ -128,6 +127,7 @@ const LocationManager = () => {
           <Table
             columns={columns}
             dataSource={data}
+            style={{ marginTop: "20px", gap: "20px", height: "auto" }}
             pagination={{
               pageSize: 5,
               total: totalPages,

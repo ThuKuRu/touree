@@ -5,6 +5,7 @@ import { LockOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 import UserService from "../../service/UserService";
 import { useState } from "react";
+import { openNotificationWithIcon } from "../../component/Notification/Notification";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -13,15 +14,22 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [phonenumber, setPhone] = useState("");
 
-  const register = async () => {
+  const register = async (e) => {
+    e.preventDefault()
     try {
       const user = { fullname, username, password, phonenumber };
       console.log(user);
       const response = await UserService.register(user);
+      openNotificationWithIcon(
+        "SUCCESS",
+        "Register successfully",
+        "success"
+      );
       console.log(response);
     } catch (error) {
       console.log(error);
     }
+    navigate("/login")
   };
 
   return (
@@ -35,7 +43,7 @@ const Register = () => {
             </h1>
           </div>
 
-          <form onSubmit={() => register()}>
+          <form onSubmit={(e) => register(e)}>
             <input
               type="text"
               placeholder=" FULL NAME"

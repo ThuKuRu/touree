@@ -13,8 +13,10 @@ const TopNav = (props) => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
+  const role = localStorage.getItem("role");
   const logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("role");
     navigate("/");
   };
   const menuDropdown = (
@@ -78,7 +80,6 @@ const TopNav = (props) => {
     />
   );
 
-  console.log(userLogin);
   const navigate = useNavigate();
   const dropdownHeader = () => (
     <>
@@ -115,15 +116,19 @@ const TopNav = (props) => {
                 HOME
               </div>
             </div>
-            <div className={`container `}>
-              <div
-                onClick={() => {
-                  navigate("/manage");
-                }}
-              >
-                MANAGE
+            {role === "MANAGER" ? (
+              <div className={`container`}>
+                <div
+                  onClick={() => {
+                    navigate("/manage");
+                  }}
+                >
+                  MANAGE
+                </div>
               </div>
-            </div>
+            ) : (
+              ""
+            )}
           </div>
           <div className="headRight">
             <SelectList value={value} onChange={handleChange}>

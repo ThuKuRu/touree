@@ -7,6 +7,7 @@ import TourCard from "../../component/MultipleItems/TourCard";
 import TopNav from "../../Home/Layout/TopNav/TopNav";
 import Footer from "../../Home/Layout/Footer/Footer";
 import "./locationDetail.css";
+import TourLocationService from "../../service/TourLocationService";
 const LocationDetail = () => {
   const { id } = useParams();
   const [location, setLocation] = useState("");
@@ -14,14 +15,15 @@ const LocationDetail = () => {
   const getDataFromApi = async () => {
     try {
       const response = await LocationService.getById(id);
-      const response2 = await TourService.getAllTour();
-      setTours(response2.data.content);
+      const response2 = await TourLocationService.getAllToursByLocationId(id);
+      console.log(response2);
+      setTours(response2.data);
       setLocation(response.data);
     } catch (error) {
       console.log(error);
     }
   };
-  
+
   useEffect(() => {
     getDataFromApi();
   }, []);
